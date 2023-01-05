@@ -1,0 +1,30 @@
+body{
+    background-color : grey;
+
+}
+
+#sketch-container{
+    padding:0;
+    margin:auto;
+    width:640px;
+    height: 640px;
+    background-color: white;
+    
+}
+
+
+.row{
+    padding:0;
+    margin:0;
+    height: calc(100%/16);
+    display: flex;
+
+
+}
+
+.cell{
+    padding:0;
+    margin:0;
+    height:100%;
+    width:calc(100%/16);
+}
