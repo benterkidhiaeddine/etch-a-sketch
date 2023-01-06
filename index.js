@@ -43,7 +43,7 @@ function rainbow(){
     }
 }
 //def function to add the functionality of the drawboard that takes color as a paramater
-function functionality(color){
+function functionality(color="black"){
     //add the functionality to the draw board
     //list of cells 
     const cells = document.querySelectorAll(".cell");
@@ -82,27 +82,7 @@ function  changeColor(){
 
 }
 
-//function for validating the input
-function validateInput(){
-    numberOfPixels = parseInt(prompt("PLeas enter the number of wanted pixels on the sketch board"));
-    
-    if(isNaN(numberOfPixels)){
-        alert("Pleas enter a valid number not greater than 100");
-        validateInput();
-    }
 
-    if(numberOfPixels>100){
-        numberOfPixels = 16;
-        alert("The number of pixels was set to 16 pleas refrain from entering a number bigger than 100");
-        validateInput();
-
-    }
-    else if(numberOfPixels<=0){
-        numberOfPixels=16;
-        alert("The number of pixels was set to 16 pleas refrain from entering a negative number or zero number");
-        validateInput();
-    }
-    }
 
 //make the drawing of the sketch board into a function
 function drawSketchBoard(numberOfPixels,color){
