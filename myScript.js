@@ -57,6 +57,13 @@ function functionality(color="black"){
         drawMode=false;
     })
 
+    sketchContainer.addEventListener("touchstart",function(){
+        drawMode=true;
+    });
+    sketchContainer.addEventListener("touchend",function(){
+        drawMode=false;
+    })
+
     //functionality when holding and moving the mouse button it will draw
     for (element of cells){
         element.addEventListener("mousemove",function(e){
@@ -65,13 +72,15 @@ function functionality(color="black"){
             }
             
         
-        })
-        element.addEventListener("click",function(e){
-            if (drawMode){
+        });
+        element.addEventListener("touchmove",function(e){
+            if(drawMode){
                 e.target.style.backgroundColor=`${color}`;
+            
             }
+            
         
-        })
+        });
         
     }
 
