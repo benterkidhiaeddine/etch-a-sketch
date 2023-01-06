@@ -63,6 +63,13 @@ function functionality(color="black"){
             if (drawMode){
                 e.target.style.backgroundColor=`${color}`;
             }
+            
+        
+        })
+        element.addEventListener("click",function(e){
+            if (drawMode){
+                e.target.style.backgroundColor=`${color}`;
+            }
         
         })
         
