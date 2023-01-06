@@ -113,3 +113,7 @@ pixelNumberButton.addEventListener("click",function(){
 const erase =document.getElementById("eraser");
 erase.addEventListener("click",()=>functionality("white"));
 
+//button for reseting the board
+
+const reset =document.getElementById("reset");
+reset.addEventListener("click",()=>drawSketchBoard(numberOfPixels,color));
