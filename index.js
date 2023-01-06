@@ -14,6 +14,33 @@ let drawMode=false;
 //select the sketch container 
 const sketchContainer = document.getElementById(("sketch-container"));
 
+
+//define a function for selecting a random value between 0-255
+function randomRGB(){
+    return Math.floor(Math.random()*255);
+}
+
+//def a function that changes the color of each time the mouse moved from a pixel to another one
+function rainbow(){
+    const cells = document.querySelectorAll(".cell");
+
+    sketchContainer.addEventListener("mousedown",function(){
+        drawMode=true;
+    });
+    sketchContainer.addEventListener("mouseup",function(){
+        drawMode=false;
+    })
+
+    //functionality when holding and moving the mouse button it will draw
+    for (element of cells){
+        element.addEventListener("mousemove",function(e){
+            if (drawMode){
+                e.target.style.backgroundColor=`rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
+            }
+        
+        })
+    }
+}
 //def function to add the functionality of the drawboard that takes color as a paramater
 function functionality(color){
     //add the functionality to the draw board
@@ -125,4 +152,11 @@ reset.addEventListener("click",()=>drawSketchBoard(numberOfPixels,color));
 //button for switching to draw mode
 const draw = document.getElementById("draw");
 draw.addEventListener("click",()=>functionality(rememberColor));
+
+
+//button for rainbow mode
+const rainbowButton=document.getElementById("rainbow");
+rainbowButton.addEventListener("click",()=>rainbow());
+    
+
 
