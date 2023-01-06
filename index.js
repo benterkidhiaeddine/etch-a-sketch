@@ -59,28 +59,37 @@ function drawSketchBoard(numberOfPixels){
 
 
     }
+
 //draw the default sketchBoard
 drawSketchBoard(numberOfPixels);
 
+
+//function for validating the input
+function validateInput(){
+    numberOfPixels = parseInt(prompt("PLeas enter the number of wanted pixels on the sketch board"));
+    
+    if(isNaN(numberOfPixels)){
+        alert("Pleas enter a valid number not greater than 100");
+        validateInput();
+    }
+
+    if(numberOfPixels>100){
+        numberOfPixels = 16;
+        alert("The number of pixels was set to 16 pleas refrain from entering a number bigger than 100");
+        validateInput();
+
+    }
+    else if(numberOfPixels<=0){
+        numberOfPixels=16;
+        alert("The number of pixels was set to 16 pleas refrain from entering a negative number or zero number");
+        validateInput();
+    }
+    }
 //button for choosing number of pixels
 const pixelNumberButton=document.getElementById("pixelNumber");
 pixelNumberButton.addEventListener("click",function(){
-    try{
-        numberOfPixels = parseInt(prompt("PLeas enter the number of wanted pixels on the sketch board"));
-    }
-    catch{
-        alert("pleas enter a valid number of pixels")
-    }
+    validateInput();
     
-    if(numberOfPixels>100){
-        numberOfPixels = 16;
-        alert("The number of pixels was set to 16 pleas refrain from entering a number bigger than 100")
-
-    }
-    else if(numberOfPixels<0){
-        numberOfPixels=16;
-        alert("The number of pixels was set to 16 pleas refrain from entering a negative number")
-    }
     drawSketchBoard(numberOfPixels);
    
 })
