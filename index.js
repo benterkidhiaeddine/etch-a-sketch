@@ -1,7 +1,7 @@
 
 
 //modify this to get change the number of pixels used for the sketching board
-let numberOfPixels = 64;
+let numberOfPixels = 16;
 
 //select the sketch container 
 
@@ -32,10 +32,23 @@ for (let i=0;i<numberOfPixels;i++){
 //list of cells 
 const cells = document.querySelectorAll(".cell");
 
-//change color when clicking the cell to draw
+//flag to keep track if we are in drawing mode or not
+let drawMode=false;
+
+sketchContainer.addEventListener("mousedown",function(){
+    drawMode=true;
+});
+sketchContainer.addEventListener("mouseup",function(){
+    drawMode=false;
+})
+
+//functionality when holding and moving the mouse button it will draw
 for (element of cells){
-    element.addEventListener("click",function(e){
-        e.target.style.backgroundColor="black";
+    element.addEventListener("mousemove",function(e){
+        if (drawMode){
+            e.target.style.backgroundColor="black";
+        }
+    
     })
 }
 
