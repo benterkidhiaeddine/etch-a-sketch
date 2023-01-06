@@ -144,7 +144,8 @@ drawSketchBoard(numberOfPixels,color);
 //button for choosing number of pixels
 const pixelNumberButton=document.getElementById("pixelNumber");
 pixelNumberButton.addEventListener("click",function(){
-    validateInput();
+    const pixelInput =document.getElementById("pixelInput");
+    numberOfPixels = pixelInput.value;
     
     drawSketchBoard(numberOfPixels,color);
    
