@@ -25,3 +25,14 @@ for (let i=0;i<rows;i++){
     //add the element to the sketch container
     sketchContainer.appendChild(row);
 }
+
+//list of cells 
+const cells = document.querySelectorAll(".cell");
+
+//change color when clicking the cell to draw
+for (element of cells){
+    element.addEventListener("click",function(e){
+        e.target.style.backgroundColor="black";
+    })
+}
+
