@@ -14,11 +14,12 @@ let drawMode=false;
 //select the sketch container 
 const sketchContainer = document.getElementById(("sketch-container"));
 
-
 //define a function for selecting a random value between 0-255
 function randomRGB(){
     return Math.floor(Math.random()*255);
 }
+
+
 
 //def a function that changes the color of each time the mouse moved from a pixel to another one
 function rainbow(){
@@ -65,6 +66,19 @@ function functionality(color){
         
         })
     }
+
+}
+
+//function for changing the color
+function  changeColor(){
+    const redInput =document.getElementById("red");
+    const greenInput =document.getElementById("green");
+    const blueInput =document.getElementById("blue");
+
+    let redValue =redInput.value;
+    let greenValue =greenInput.value;
+    let blueValue =blueInput.value;
+    functionality(`rgb(${redValue},${greenValue},${blueValue})`);
 
 }
 
@@ -141,7 +155,7 @@ pixelNumberButton.addEventListener("click",function(){
 
 const erase =document.getElementById("eraser");
 erase.addEventListener("click",function(){
-    rememberColor=color;
+    
     functionality("white")});
 
 //button for reseting the board
@@ -151,7 +165,7 @@ reset.addEventListener("click",()=>drawSketchBoard(numberOfPixels,color));
 
 //button for switching to draw mode
 const draw = document.getElementById("draw");
-draw.addEventListener("click",()=>functionality(rememberColor));
+draw.addEventListener("click",()=>changeColor());
 
 
 //button for rainbow mode
@@ -159,4 +173,7 @@ const rainbowButton=document.getElementById("rainbow");
 rainbowButton.addEventListener("click",()=>rainbow());
     
 
+//button for changing the color
 
+const colorButton = document.getElementById("colorChange");
+colorButton.addEventListener("click",()=>changeColor());
