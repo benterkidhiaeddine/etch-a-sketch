@@ -36,7 +36,9 @@ h1{
     
     
 }
-
+#color-circle{
+    background-color: black;
+}
 
 .row{
     padding:0;

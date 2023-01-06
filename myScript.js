@@ -65,6 +65,7 @@ function functionality(color="black"){
             }
         
         })
+        
     }
 
 }
@@ -75,9 +76,12 @@ function  changeColor(){
     const greenInput =document.getElementById("green");
     const blueInput =document.getElementById("blue");
 
+    const colorCircle=document.getElementById("color-circle");
+
     let redValue =redInput.value;
     let greenValue =greenInput.value;
     let blueValue =blueInput.value;
+    colorCircle.style.backgroundColor=`rgb(${redValue},${greenValue},${blueValue})`;
     functionality(`rgb(${redValue},${greenValue},${blueValue})`);
 
 }
