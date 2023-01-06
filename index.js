@@ -6,6 +6,8 @@ let numberOfPixels = 16;
 //modify the drawing color
 let color ="black";
 
+//remember the color when switch to erase
+let rememberColor="";
 //flag to keep track if we are in drawing mode or not
 let drawMode=false;
 
@@ -111,9 +113,16 @@ pixelNumberButton.addEventListener("click",function(){
 //button for erasing 
 
 const erase =document.getElementById("eraser");
-erase.addEventListener("click",()=>functionality("white"));
+erase.addEventListener("click",function(){
+    rememberColor=color;
+    functionality("white")});
 
 //button for reseting the board
 
 const reset =document.getElementById("reset");
 reset.addEventListener("click",()=>drawSketchBoard(numberOfPixels,color));
+
+//button for switching to draw mode
+const draw = document.getElementById("draw");
+draw.addEventListener("click",()=>functionality(rememberColor));
+
